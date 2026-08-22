@@ -1,6 +1,7 @@
 export async function jsonHandler(req, res) {
     const buffers = []
 
+    // Looping para receber cada pedaco da requisicao e adicionar no buffers
     for await (const chunk of req) {
         buffers.push(chunk)
     }

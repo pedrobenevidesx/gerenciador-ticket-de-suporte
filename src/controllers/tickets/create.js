@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto"
  
-export function create({ req, res }) {
+// funcao para gerar um ticket
+export function create({ req, res, database }) {
     const { equipamento, descricao, username } = req.body
 
     const ticket = {
@@ -14,5 +15,7 @@ export function create({ req, res }) {
         update_at: new Date()
     }
 
-    return res.end(JSON.stringify(ticket))
+    database.insert("tickets", ticket)
+
+    return res.writeHead(201).end(JSON.stringify(ticket))
 }
