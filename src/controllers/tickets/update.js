@@ -1,9 +1,5 @@
 export function update( { req, res, database }) {
 
-    console.log(req.params)
-    console.log(req.body)
-
-
     const { id } = req.params
     const { equipamento, descricao } = req.body
 
@@ -13,5 +9,5 @@ export function update( { req, res, database }) {
         update: new Date(),
     })
 
-    return res.end()
+    return res.end("Ticket atualizado com sucesso!")
 }

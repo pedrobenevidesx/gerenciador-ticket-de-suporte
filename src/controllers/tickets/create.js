@@ -1,6 +1,5 @@
 import { randomUUID } from "node:crypto"
  
-// funcao para gerar um ticket
 export function create({ req, res, database }) {
     const { equipamento, descricao, username } = req.body
 

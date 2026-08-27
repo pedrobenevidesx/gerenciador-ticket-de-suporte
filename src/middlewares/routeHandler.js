@@ -10,11 +10,14 @@ export function routeHandler(req, res) {
     })
 
     if(route) {
+        // Extrai os parâmetros dinâmicos e a query string capturados pela rota
         const routeParams = req.url.match(route.path)
 
         const { query, ...params } = routeParams.groups
 
         req.params = params
+        
+        // converte a query string em objeto
         req.query = query ? extractQueryParams(query) : {}
 
         return route.controller({ req, res, database })

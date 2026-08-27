@@ -1,4 +1,6 @@
 export function extractQueryParams(query) {
+
+    // slice para remover "?" do inicio da query
     return query
     .slice(1)
     .split("&")
